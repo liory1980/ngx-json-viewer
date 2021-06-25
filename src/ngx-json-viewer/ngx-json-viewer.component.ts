@@ -18,6 +18,7 @@ export class NgxJsonViewerComponent implements OnChanges {
   @Input() json: any;
   @Input() expanded = true;
   @Input() depth = -1;
+  @Input() showHTML = false;
 
   @Input() _currentDepth = -1;
 
