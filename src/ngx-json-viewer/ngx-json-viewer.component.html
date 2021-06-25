@@ -12,7 +12,10 @@
       <div *ngIf="isExpandable(segment)" class="toggler"></div>
       <span class="segment-key">{{ segment.key }}</span>
       <span class="segment-separator">: </span>
-      <span *ngIf="!segment.expanded || !isExpandable(segment)" class="segment-value">{{ segment.description }}</span>
+      <span *ngIf="!segment.expanded || !isExpandable(segment)" class="segment-value">
+        <ng-container *ngIf="showHTML"  [innerHtml]="segment.description"> </ng-container>
+        <ng-container *ngIf="!showHTML">{{ segment.description }}</ng-container>
+      </span>
     </section>
     <section *ngIf="segment.expanded && isExpandable(segment)" class="children">
       <ngx-json-viewer [json]="segment.value" [expanded]="expanded" [depth]="depth" [_currentDepth]="_currentDepth"></ngx-json-viewer>
